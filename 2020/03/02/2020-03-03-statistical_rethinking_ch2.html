@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Life is messy as fuck | Sho’s personal blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Life is messy as fuck" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sho’s personal blog" />
+<meta property="og:description" content="Sho’s personal blog" />
+<link rel="canonical" href="https://shonaka.github.io/blog/2020/03/02/2020-03-03-statistical_rethinking_ch2.html" />
+<meta property="og:url" content="https://shonaka.github.io/blog/2020/03/02/2020-03-03-statistical_rethinking_ch2.html" />
+<meta property="og:site_name" content="Life is messy as fuck" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-02T21:03:23-06:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://shonaka.github.io/blog/2020/03/02/2020-03-03-statistical_rethinking_ch2.html"},"description":"Sho’s personal blog","@type":"BlogPosting","url":"https://shonaka.github.io/blog/2020/03/02/2020-03-03-statistical_rethinking_ch2.html","headline":"Life is messy as fuck","dateModified":"2020-03-02T21:03:23-06:00","datePublished":"2020-03-02T21:03:23-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/blog/assets/main.css">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://shonaka.github.io/blog/feed.xml" title="Life is messy as fuck" />
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Life is messy as fuck</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline"></h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-02T21:03:23-06:00" itemprop="datePublished">
+        Mar 2, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-03-03-statistical_rethinking_ch2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="About">About<a class="anchor-link" href="#About">&#182;</a></h1><ul>
+<li><a href="https://xcelab.net/rm/statistical-rethinking/">Statistical rethinking</a> is an excellent book/course about Bayesian learning for beginners.</li>
+<li>I would recommend:<ol>
+<li>Read the chapter</li>
+<li>Watch the youtube video for the corresponding chapter</li>
+<li>Implement and run the code
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z" /></svg>
+    <strong>Important: </strong>I would highly recommend spending some time on Chapter 2 and 3 as they are the foundations
+</div>
+## Corresponding Youtube Video
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/watch?v=XoVtOAN0htU&amp;list=PLDcUM9US4XdNM4Edgs7weiyIguLSToZRI&amp;index=2" frameborder="0" allowfullscreen=""></iframe>
+</center></li>
+</ol>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-2">Chapter 2<a class="anchor-link" href="#Chapter-2">&#182;</a></h1><h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><ul>
+<li>Chapter 2 covers the basics of Bayesian inference. It's pretty much summarized in one sentence as indicated below. I will not cover this part so if you are not sure what the following means, check the textbook and the youtube video.
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z" /></svg>
+    <strong>Important: </strong>Bayesian inference is really just counting and comparing of possibilities.
+</div>- This chapter also covers Bayesian modeling. This is the fundamental part that I'm going to cover and spend most time on.</li>
+</ul>
+<h2 id="Bayesian-Modeling">Bayesian Modeling<a class="anchor-link" href="#Bayesian-Modeling">&#182;</a></h2><ul>
+<li>Problem statement:<ol>
+<li>Randomly sample a point from a world map</li>
+<li>Is the point land(=L) or water(=W)? There's nothing else. It has to be either L or W. So it's binomial.</li>
+<li>Can we figure out a good estimate of the world from these samples?<ul>
+<li>For example, given the collected samples, how much portion of the world is water? 30%? 60%?</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sample-N-=-1">Sample N = 1<a class="anchor-link" href="#Sample-N-=-1">&#182;</a></h3><p>Let's start from the beginning. You randomly sampled a sample from the world map. It was water(=W). To understand the world with probability, we could try plotting the probability of water vs plausibility plot like below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let me explain about this figure a bit. First, you have proportion of water or probability of water in the x-axis. You have the plausibility that tells you how likely that is the case in the y-axis. Check out the previous plausibility. This is shown as a dashed line. Previous plausibility means before randomly sampling anything. You have no idea what's the plausibility of water with respect to (w.r.t.) the proportion of water. In other words, every proportion in x-axis is likely plausible before sampling anything and that's why it's a straight line.</p>
+<p>Next, look at the current plausibility. Things have changed here. Now you have one sample, which was water(=W) out of N = 1 total sample. Notice that now the plausibility w.r.t. the proportion of water = 0 is zero. Why? because you observed that there is water by sampling water. Therefore, there's no way the proportion of water is zero now. Don't worry if you don't get it by now, let's look at the next example.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sample-N-=-2">Sample N = 2<a class="anchor-link" href="#Sample-N-=-2">&#182;</a></h3><p>Previously, we sampled water(=W). With one sample, it's impossible to understand the underlying probability distribution of the problem. Let's keep sampling to understand more about the world. This time, you sampled land(=L). So now you have W, L, two samples.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's becoming more interesting. At the second sample, you observed land(=L) and you have already observed water(=W) in the first sample. Now you know that the plausibility w.r.t. the proportion of water = 1 is zero too. Why? Think this way. If the world is covered with full of water with no land, then yeah surely the proportion of water = 1 is plausible. But in that case, you won't observe land. Since you observed land in the second sample, this distopian scenario of the world covered with full of water is no longer valid. Thank god!</p>
+<p>Instead, what's more plausible is the proportion of water = 0.5. This is because out of 2 samples, you have 1 water and 1 land. It's like flipping a coin now. Without knowing what's a coin is, but you were told that you have 1 head and 1 tail, how do approximate the probability of the next one being head? Probably 50:50, right?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sample-N-=-3-to-9">Sample N = 3 to 9<a class="anchor-link" href="#Sample-N-=-3-to-9">&#182;</a></h3><p>From here on, you should be able to pretty much understand what the plot indicates. Take some time to see if the below plots make sense to you given the sequences of samples: W, L, W, W, W, L, W, L, W</p>
+<p>So now you have 9 samples in total. Of which 6 water and 3 land.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can now see that every time we get a sample (either L or W), the probability distribution gets updated to represent the underlying distribution of the world as accurate as it can (I'll talk about how exactly to calculate these in a moment). If you look at the last N = 9, you see the peak somewhere around 0.65 ish. This should be intuitive because you got 6 W out of 9 total samples. Which is 6/9 = 0.666... The most likely representation of the world given only 9 samples.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Breaking-down-Bayesian-modeling">Breaking down Bayesian modeling<a class="anchor-link" href="#Breaking-down-Bayesian-modeling">&#182;</a></h2><p>By now, you might be wondering. "Yeah, I think I got the concept. It's a toy problem. Easy! But how exactly can we compute and plot the graph?"</p>
+<p>This is the section with equations.</p>
+<p>You might already know the Bayes rule:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\underbrace{P(A|B)}_\text{Posterior}
+=\frac{\overbrace{P(B|A)}^\text{Likelihood} \times \overbrace{P(A)}^\text{Prior}}{\underbrace{P(B)}_\text{Marginal}}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the figures above, all I was doing is the following:</p>
+<ol>
+<li>Calculate the likelihood given the new sample</li>
+<li>Calculate the prior (or get the previous posterior)</li>
+<li>Multiply the two</li>
+<li>Divide it by the marginal to standardize so it becomes posterior probability</li>
+</ol>
+<h3 id="Likelihood">Likelihood<a class="anchor-link" href="#Likelihood">&#182;</a></h3><p>First, let's get started with likelihood. Likelihood is described as
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap octicon octicon-zap" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z" /></svg>
+    <strong>Important: </strong>a mathematical formula that specified the plausibility of the data.
+</div>
+In the toy example, given the assumption that each of the random sampling is independent from each other and the probability of getting a sample does not change (the world doesn't change), we could treat the problem as the binomial distribution.</p>
+$$Pr(x|n,p) = \frac{n!}{(n-x)!x!} p^x (1-p)^{n-x}$$<p>where</p>
+<ul>
+<li>$x$: the count of an event (e.g. water)</li>
+<li>$n$: total count of events</li>
+<li>$p$: probability of getting $x$</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the distribution with parameters</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Say we drew 6 samples out of 9 total samples</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c1"># Evaluate log probability of x</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># Convert back to a normal probability by taking the exponential</span>
+<span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="c1"># Now all together</span>
+<span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">likelihood</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.16406256
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that for the probability of p, we are just setting it to 0.5 here. This corresponds to the x-axis (proportion of water) in the previous plots. Imagine calculating the likelihood at a certain point in x-axis which is 0.5. The above value in likelihood is the likelihood of water if the probability of water appearing is 0.5 and we sampled 6 water out of 9 total samples.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Prior">Prior<a class="anchor-link" href="#Prior">&#182;</a></h3><p>Now the prior. This is where you can give some information about the prior distribution. I talked a bit before in the plot with example N = 1 where the dashed line was flat. This was because before sampling anything, there's no information about the world, so the plausibility of water in any probability is equally likely = flat line.</p>
+<p>We can model this flat line as an uniform distribution:</p>
+$$Pr(p) = \frac{1}{b - a}$$<p>where</p>
+<ul>
+<li>$a$: minimum probability</li>
+<li>$b$: maximum probability</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DeviceArray(0.16406256, dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DeviceArray(-1.8075075, dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_batch_shape&#39;,
+ &#39;_event_shape&#39;,
+ &#39;_validate_args&#39;,
+ &#39;_validate_sample&#39;,
+ &#39;arg_constraints&#39;,
+ &#39;batch_shape&#39;,
+ &#39;event_shape&#39;,
+ &#39;log_prob&#39;,
+ &#39;mean&#39;,
+ &#39;probs&#39;,
+ &#39;reparametrized_params&#39;,
+ &#39;sample&#39;,
+ &#39;sample_with_intermediates&#39;,
+ &#39;set_default_validate_args&#39;,
+ &#39;support&#39;,
+ &#39;to_event&#39;,
+ &#39;total_count&#39;,
+ &#39;transform_with_intermediates&#39;,
+ &#39;variance&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span><span class="n">total_count</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">probs</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-10-bf7933c10481&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>dist<span class="ansi-blue-fg">.</span>Binomial<span class="ansi-blue-fg">(</span>total_count<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">9</span><span class="ansi-blue-fg">,</span> probs<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.5</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>probs<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;float&#39; object is not callable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define grid (0 to 1, evenly separated 20 points)</span>
+<span class="n">probability_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># define prior distribution</span>
+<span class="n">prior</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># compute likelihood at each value in grid</span>
+<span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+    <span class="n">dist</span><span class="o">.</span><span class="n">Binomial</span><span class="p">(</span>
+        <span class="n">total_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">probs</span><span class="o">=</span><span class="n">probability_grid</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># compute product of likelihood and prior</span>
+<span class="n">unstandardized_posterior</span> <span class="o">=</span> <span class="n">likelihood</span> <span class="o">*</span> <span class="n">prior</span>
+
+<span class="c1"># standardize the posterior, so it sums to 1</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">unstandardized_posterior</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">unstandardized_posterior</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">probability_grid</span><span class="p">,</span> <span class="n">posterior</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;probability of water&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;posterior probability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Computing posterior distribution by grid approximation: 20 points&quot;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+</div>
+
+  </div><a class="u-url" href="/blog/2020/03/02/2020-03-03-statistical_rethinking_ch2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Life is messy as fuck</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Life is messy as fuck</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  <li><a href="https://github.com/shonaka"><svg class="social svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">shonaka</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Sho&#39;s personal blog</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
