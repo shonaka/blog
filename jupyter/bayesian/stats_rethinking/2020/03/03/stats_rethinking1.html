@@ -80,7 +80,7 @@
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -135,6 +135,7 @@
 <ul>
 <li class="toc-entry toc-h3"><a href="#Likelihood">Likelihood¶</a></li>
 <li class="toc-entry toc-h3"><a href="#Prior">Prior¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Marginal">Marginal¶</a></li>
 </ul>
 </li>
 </ul>
@@ -475,7 +476,7 @@ $$Pr(x|n,p) = \frac{n!}{(n-x)!x!} p^x (1-p)^{n-x}$$<p>where</p>
 <h3 id="Prior">
 <a class="anchor" href="#Prior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prior<a class="anchor-link" href="#Prior">¶</a>
 </h3>
-<p>Now the prior. This is where you can give some information about the prior distribution. I talked a bit before in the plot with example N = 1 where the dashed line was flat. This was because before sampling anything, there's no information about the world, so the plausibility of water in any probability is equally likely = flat line.</p>
+<p>Now the prior. This is where you can give some information about the prior distribution, usually determined by the assumption you have about the data. I talked a bit before in the plot with example N = 1 where the dashed line was flat. This was because before sampling anything, there's no information about the world, so the plausibility of water in any probability is equally likely = flat line.</p>
 <p>We can model this flat line as an uniform distribution:</p>
 $$Pr(p) = \frac{1}{b - a}$$<p>where</p>
 <ul>
@@ -483,6 +484,21 @@ $$Pr(p) = \frac{1}{b - a}$$<p>where</p>
 <li>$b$: maximum probability</li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Marginal">
+<a class="anchor" href="#Marginal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Marginal<a class="anchor-link" href="#Marginal">¶</a>
+</h3>
+<p>This part is easy as it's just the factor to normalize as you can see in the Bayes rule I already showed you.</p>
+<p>In other words, the following Bayes rule can be written in a different format</p>
+$$\underbrace{P(A|B)}_\text{Posterior}
+=\frac{\overbrace{P(B|A)}^\text{Likelihood} \times \overbrace{P(A)}^\text{Prior}}{\underbrace{P(B)}_\text{Marginal}}$$<p>when thinking the marginal as a normalization factor, it's written like this:</p>
+$$\underbrace{P(A|B)}_\text{Posterior}
+=\frac{\overbrace{P(B|A)}^\text{Likelihood} \times \overbrace{P(A)}^\text{Prior}}{\underbrace{\sum P(B|A)P(A)}_\text{Marginal}}$$
 </div>
 </div>
 </div>
