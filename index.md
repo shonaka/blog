@@ -6,8 +6,6 @@ layout: home
 search: exclude
 ---
 
-Yo
-
 <!---
 This site is built with [fastpages](https://github.com/fastai/fastpages), An easy to use blogging platform with extra features for Jupyter Notebooks.
 ![](images/diagram.png "https://github.com/fastai/fastpages")
@@ -17,4 +15,3 @@ You can edit the `index.md` file to change this content.
 
 # Posts
 
-aa
